@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/sabassegovia/simpleBlog/static/css/main.457ced63.css",
+    "main.js": "/sabassegovia/simpleBlog/static/js/main.4d262294.js",
+    "index.html": "/sabassegovia/simpleBlog/index.html",
+    "main.457ced63.css.map": "/sabassegovia/simpleBlog/static/css/main.457ced63.css.map",
+    "main.4d262294.js.map": "/sabassegovia/simpleBlog/static/js/main.4d262294.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.457ced63.css",
+    "static/js/main.4d262294.js"
+  ]
+}

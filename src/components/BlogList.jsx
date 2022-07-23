@@ -3,7 +3,7 @@ import Pagination from "./Pagination";
 import React, { useState, useEffect } from "react";
 import blogs from "../data/blogs.json";
 
-const PAGE_SIZES = [15, 25, 50, 100];
+const PAGE_SIZES = [15, 25, 50, 100, 1000];
 
 function BlogList() {
   const [rowsPerPage, setRowsPerPage] = useState(15);
@@ -22,7 +22,6 @@ function BlogList() {
     setCurrentPaginationData(tempPaginationData);
   };
 
-  //run use effect when row/page changes. This will update the current array of blogs
   useEffect(() => {
     firstDisplayOfPage = (currentPage - 1) * rowsPerPage;
     lastDisplayOfPage = firstDisplayOfPage + rowsPerPage;

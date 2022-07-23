@@ -9,24 +9,33 @@ function BlogList() {
   const [rowsPerPage, setRowsPerPage] = useState(15);
   const [currentPage, setCurrentPage] = useState(1);
   const [currentPaginationData, setCurrentPaginationData] = useState(blogs.posts.slice(0, rowsPerPage));
-
-  let firstDisplayOfPage = currentPage * rowsPerPage;
+  let firstDisplayOfPage = (currentPage - 1) * rowsPerPage;
   let lastDisplayOfPage = firstDisplayOfPage + rowsPerPage;
   const updateRowsPerPage = (e) => {
-    setRowsPerPage(e);
+    setRowsPerPage(Number(e));
   };
   const updatePage = (e) => {
     setCurrentPage(e);
-    setCurrentPaginationData(blogs.posts.slice(firstDisplayOfPage, lastDisplayOfPage));
+    let tempPaginationData = blogs.posts.slice(firstDisplayOfPage, lastDisplayOfPage);
+    setCurrentPaginationData(tempPaginationData);
   };
 
+  useEffect(() => {
+    console.log(`before; ${firstDisplayOfPage} - ${typeof(lastDisplayOfPage)}`)
+    firstDisplayOfPage = (currentPage - 1) * rowsPerPage;
+    lastDisplayOfPage = firstDisplayOfPage + rowsPerPage;
+    let tempPaginationData = blogs.posts.slice(firstDisplayOfPage, lastDisplayOfPage);
+    setCurrentPaginationData(tempPaginationData);
+    console.log(`after; ${firstDisplayOfPage} - ${lastDisplayOfPage}`)
+
+  }, [rowsPerPage, currentPage]);
 
   return (
     <div>
       <Pagination
         currentPage={currentPage}
         totalCount={blogs.posts.length}
-        pageSize={Number(rowsPerPage)}
+        pageSize={(rowsPerPage)}
         pageSizeOptions={PAGE_SIZES}
         onPageChange={updatePage}
         onPageSizeOptionChange={updateRowsPerPage}

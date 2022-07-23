@@ -4,7 +4,7 @@ import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/outline";
 import usePagination, { DOTS } from "../hooks/usePagination";
 
 import PropTypes from "prop-types";
-import React from "react";
+import React, {useState} from "react";
 import { nanoid } from "nanoid";
 
 function Pagination({
@@ -102,7 +102,7 @@ function Pagination({
         }}
       >
         {pageSizeOptions.map((size) => (
-          <option key={size} defaultValue={pageSize === size} value={size}>
+          <option key={size} defaultValue={pageSize === size} value={(size)}>
             {size} per page
           </option>
         ))}

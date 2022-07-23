@@ -4,6 +4,10 @@ export const DOTS = "...";
 function usePagination({ currentPage, totalCount, pageSize }) {
 
   const lastPage = Math.ceil(totalCount / pageSize);
+
+  if (currentPage === 1) {
+    return [currentPage, currentPage+1, currentPage+2, DOTS, lastPage];
+  }
   if (lastPage - currentPage === 3) {
     return [currentPage, currentPage+1, currentPage+2, currentPage + 3];
   }
@@ -16,7 +20,7 @@ function usePagination({ currentPage, totalCount, pageSize }) {
   if (lastPage - currentPage === 0) {
     return [currentPage - 3, currentPage - 2, currentPage - 1, currentPage];
   }
-  return [currentPage, currentPage+1, currentPage+2, DOTS, lastPage];
+  return [currentPage - 1, currentPage, currentPage+1, currentPage+2, DOTS, lastPage];
 }
 
 usePagination.propTypes = {

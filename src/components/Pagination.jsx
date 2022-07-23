@@ -16,7 +16,6 @@ function Pagination({
   pageSizeOptions,
 }) {
   const lastPage = Math.ceil(totalCount / pageSize);
-
   const paginationRange = usePagination({
     currentPage,
     totalCount,

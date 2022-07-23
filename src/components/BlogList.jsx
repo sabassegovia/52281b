@@ -9,8 +9,10 @@ function BlogList() {
   const [rowsPerPage, setRowsPerPage] = useState(15);
   const [currentPage, setCurrentPage] = useState(1);
   const [currentPaginationData, setCurrentPaginationData] = useState(blogs.posts.slice(0, rowsPerPage));
+
   let firstDisplayOfPage = (currentPage - 1) * rowsPerPage;
   let lastDisplayOfPage = firstDisplayOfPage + rowsPerPage;
+
   const updateRowsPerPage = (e) => {
     setRowsPerPage(Number(e));
   };
@@ -20,14 +22,12 @@ function BlogList() {
     setCurrentPaginationData(tempPaginationData);
   };
 
+  //run use effect when row/page changes. This will update the current array of blogs
   useEffect(() => {
-    console.log(`before; ${firstDisplayOfPage} - ${typeof(lastDisplayOfPage)}`)
     firstDisplayOfPage = (currentPage - 1) * rowsPerPage;
     lastDisplayOfPage = firstDisplayOfPage + rowsPerPage;
     let tempPaginationData = blogs.posts.slice(firstDisplayOfPage, lastDisplayOfPage);
     setCurrentPaginationData(tempPaginationData);
-    console.log(`after; ${firstDisplayOfPage} - ${lastDisplayOfPage}`)
-
   }, [rowsPerPage, currentPage]);
 
   return (
@@ -35,7 +35,7 @@ function BlogList() {
       <Pagination
         currentPage={currentPage}
         totalCount={blogs.posts.length}
-        pageSize={(rowsPerPage)}
+        pageSize={rowsPerPage}
         pageSizeOptions={PAGE_SIZES}
         onPageChange={updatePage}
         onPageSizeOptionChange={updateRowsPerPage}

@@ -3,7 +3,7 @@ import Pagination from "./Pagination";
 import React, { useState, useEffect } from "react";
 import blogs from "../data/blogs.json";
 
-const PAGE_SIZES = [15, 25, 50, 100, 400];
+const PAGE_SIZES = [15, 25, 50, 100];
 
 function BlogList() {
   const [rowsPerPage, setRowsPerPage] = useState(15);

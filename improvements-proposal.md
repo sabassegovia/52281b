@@ -1,0 +1,11 @@
+# Improvements Proposal
+
+1. ### Right now the data for the posts is coming from a json file. What changes would you have to make to the application if it came from an API? In what type of hook should you use to fetch the data and why? What other considerations would you have to make&quest;
++ To fetch the data from an API, we would have two choices: __axios__, __fetch__. We would use __useState__ to maintain the local states. We would also incorporate the __useEffect__ hook to fetch the data whenever there is a change in our named dependencies.The dependencies are the information which will trigger __useEffect__ to be ran, as well as preventing endless callbacks. __useEffect__ will request information from the API, when the information is received, we could then __setState__ to the desired data. Upon completion, a re-render would take place. <br/><br/>
+If we feel our fetch calls are expensive, we could use the __useMemo__ to keep these functions from needlessly running. Like with __useEffect__, we may assign a dependency so that the epensive function only runs when said dependency changes.
+<br/><br/>
+Among other things to consider would be error handling. A *Loading...* indicator would also be great for user experience, so that they are aware the website is processing a request. Even bringing it all together into a module for code reusability would be a great feature to consider.<br/><br/><br/>
+
+2. ### Part of this application uses the package nanoid to generate keys. What issue would this cause for generating keys in React&quest;
++ Preferably&#44; we would like to stay away from using nanoid, and other random ID generators, to create keys for React elements. These random values are not __stable__. React relies on those keys to decide what should be re-render when there is a state change. So when we generate new, unique, keys everytime we build array elements, React takes liberty and rebuilds those from scratch whenever state is set.<br/><br/>
+This may be a desired outcome, but most of the time it is not because it is greatly inneficient. It could also break some functionality where comparisons are being made, for example. The lack of stability also makes error checking harder, since on every run, it is a different value.

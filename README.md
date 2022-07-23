@@ -27,7 +27,6 @@ A blog post has the following structure:
   "readingTimeMinutes": 9,
   "tags": ["crypto", "health"]
 }
-```
 
 ---
 

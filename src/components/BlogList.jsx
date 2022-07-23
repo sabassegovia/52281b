@@ -14,6 +14,7 @@ function BlogList() {
   let lastDisplayOfPage = firstDisplayOfPage + rowsPerPage;
 
   const updateRowsPerPage = (e) => {
+    console.log('code to prevent identical for push purposes');
     setRowsPerPage(Number(e));
   };
   const updatePage = (e) => {

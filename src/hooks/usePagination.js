@@ -6,21 +6,22 @@ function usePagination({ currentPage, totalCount, pageSize }) {
   const lastPage = Math.ceil(totalCount / pageSize);
 
   if (currentPage === 1) {
-    return [currentPage, currentPage+1, currentPage+2, DOTS, lastPage];
+    return [1, currentPage+1, currentPage+2, DOTS, lastPage];
   }
-  if (lastPage - currentPage === 3) {
-    return [currentPage, currentPage+1, currentPage+2, currentPage + 3];
+  if (currentPage === 2) {
+    return [1, currentPage, currentPage+1, DOTS, lastPage];
   }
-  if (lastPage - currentPage === 2) {
-    return [currentPage - 1, currentPage, currentPage+1, currentPage+2];
+  if (lastPage - currentPage === 3 || lastPage - currentPage === 2) {
+    return [1, DOTS, currentPage - 1, currentPage, currentPage + 1,DOTS, lastPage];
   }
   if (lastPage - currentPage === 1) {
-    return [currentPage - 2, currentPage - 1, currentPage, currentPage+1];
+    return [1, DOTS, currentPage - 1, currentPage , lastPage];
   }
   if (lastPage - currentPage === 0) {
-    return [currentPage - 3, currentPage - 2, currentPage - 1, currentPage];
+    return [1, DOTS, currentPage - 2, currentPage - 1, lastPage];
   }
-  return [currentPage - 1, currentPage, currentPage+1, currentPage+2, DOTS, lastPage];
+  return [1, DOTS, currentPage - 1, currentPage, currentPage + 1, DOTS, lastPage];
+
 }
 
 usePagination.propTypes = {

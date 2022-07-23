@@ -7,11 +7,13 @@ function Navbar() {
   return (
     <div className="navbarWrapper">
       <h1 className="title">Hatchways Times</h1>
+      <br/>
+      <p>Now featuring pagination</p>
       <div style={{ display: "flex" }}>
         <SearchInput />
         <button type="button" className="subscribeButton">
           <UserCircleIcon className="icon" />
-          <p>Subscribe</p>
+          <p>Bork</p>
         </button>
       </div>
     </div>

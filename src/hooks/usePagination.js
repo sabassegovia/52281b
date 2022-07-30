@@ -6,7 +6,7 @@ function usePagination({ currentPage, totalCount, pageSize }) {
   const lastPage = Math.ceil(totalCount / pageSize);
 
   if (totalCount <= pageSize) {
-    return [1]
+    return [1];
   }
   if (currentPage === 1) {
     return [1, currentPage+1, currentPage+2, DOTS, lastPage];

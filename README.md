@@ -1,5 +1,6 @@
 # Hatchways Frontend Work Simulation
 
+#### This is not a blog I built. Rather a coding exercise where my task was to give the page navigation functionality. CSS and sample code was already provided without functionality. My work is located in [BlogList.jsx](), [Pagination.jsx](), and [usePagination.js](). That is the only practical functionality in the program. Everything else is template.
 ## General Instructions
 
 For this project, you are provided a starting codebase for a React front end and are to build on this starting code by adding new features. The starting code is for the application described in the section below, and you can find your assigned work on the Issues tab of this repository.
